@@ -1,7 +1,7 @@
 from typing import Literal
 
 from tomachess.base import TeamParametersBase, TeamStatesBase,TeamTournamentBase
-from tomachess.parameter import Tiebreaks
+from tomachess.parameter import TeamTiebreaks
 from tomachess.parameter.tiebreaks.criteria import BoardPoints, TeamTiebreakCriterium
 from tomachess.registry import ParametersRegistry, StatesRegistry, TeamTournamentRegistry
 from tomachess.tournament.round_robin.pairing_engine import RoundRobinPairingEngine
@@ -10,7 +10,7 @@ from tomachess.tournament.round_robin.pairing_engine import RoundRobinPairingEng
 @ParametersRegistry.register
 class RoundRobinTeamParameters(TeamParametersBase):
     type: Literal["round_robin"] = "round_robin"
-    tiebreaks: Tiebreaks[TeamTiebreakCriterium] = Tiebreaks(criteria=[BoardPoints()])
+    tiebreaks: TeamTiebreaks[TeamTiebreakCriterium] = TeamTiebreaks(criteria=[BoardPoints()])
     cycles: int = 1
 
 @StatesRegistry.register

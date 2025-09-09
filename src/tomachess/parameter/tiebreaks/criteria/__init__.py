@@ -10,11 +10,6 @@ from tomachess.parameter.tiebreaks.criteria.sonneborn_berger import SonnebornBer
 if TYPE_CHECKING:
     from tomachess.base.tournament_base import TournamentBase, TeamTournamentBase
 
-AbstractTiebreakCriterium = Annotated[Union[
-    Buchholz[Any],
-    SonnebornBerger[Any],
-    BoardPoints
-], Field(discriminator="type")]
 TiebreakCriterium = Annotated[Union[
     Buchholz["TournamentBase"],
     SonnebornBerger["TournamentBase"]
@@ -26,7 +21,6 @@ TeamTiebreakCriterium = Annotated[Union[
 ], Field(discriminator="type")]
 
 __all__ = [
-    "AbstractTiebreakCriterium",
     "BoardPoints",
     "Buchholz",
     "SonnebornBerger",

@@ -108,7 +108,7 @@ class AbstractTournamentBase(Entity, Generic[T], ABC):
         self.states.byes |= set(uuids)
 
 
-class TournamentBase(AbstractTournamentBase[Player], ABC):
+class TournamentBase(AbstractTournamentBase[Player]):
     parameters: ParametersBase
     states: StatesBase
 
@@ -126,8 +126,11 @@ class TournamentBase(AbstractTournamentBase[Player], ABC):
         self.states.pairings = None
         self.states.byes = set()
 
+    def is_finished(self) -> bool:
+        return False
 
-class TeamTournamentBase(AbstractTournamentBase[Team], ABC):
+
+class TeamTournamentBase(AbstractTournamentBase[Team]):
     parameters: TeamParametersBase
     states: TeamStatesBase
 
@@ -186,3 +189,6 @@ class TeamTournamentBase(AbstractTournamentBase[Team], ABC):
             self.states.pairings = None
             self.states.team_pairings = None
             self.states.byes = set()
+
+    def is_finished(self) -> bool:
+        return False
