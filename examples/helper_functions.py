@@ -67,6 +67,24 @@ def assign_random_game_result(game_result: GameResult) -> None:
             game_result.result_2 = IndividualResult.WIN
 
 
+def print_tournament_players(tournament: Tournament) -> None:
+    """Helper function to visualize tournament players."""
+    uuid_dict = tournament.get_participant_dict()
+    for i, uuid in enumerate(uuid_dict.keys()):
+        name = get_name_from_uuid(uuid, uuid_dict)
+        print(f"{i + 1:2}. {name}")
+
+
+def print_tournament_teams(tournament: TeamTournament) -> None:
+    """Helper function to visualize tournament players."""
+    uuid_dict = tournament.get_participant_dict()
+    for i, (uuid, team) in enumerate(uuid_dict.items()):
+        name = get_name_from_uuid(uuid, uuid_dict)
+        print(f"{name}")
+        for i, member in enumerate(team.members):
+            print(f"{i + 1:4}. {member.name}")
+
+
 def print_pairings(pairings: FinalizedPairings, tournament: Tournament) -> None:
     """Helper function to visualize pairings."""
     uuid_dict = tournament.get_participant_dict()

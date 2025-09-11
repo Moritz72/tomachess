@@ -26,6 +26,7 @@ players = [
     Player(name="Olivia"),
     Player(name="Peter")
 ]
+
 # Create some dummy teams
 teams = [
     Team(name="Raptors", members=players[:4]),

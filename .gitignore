@@ -1,5 +1,6 @@
 .idea/
 examples/json_store/*
+examples/sql_store.db
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python

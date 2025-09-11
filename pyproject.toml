@@ -6,7 +6,8 @@ readme = "README.md"
 authors = [{ name = "Moritz Eckert", email = "MoritzEckert@web.de" }]
 license = { text = "MIT" }
 dependencies = [
-    "pydantic==2.11.7"
+    "pydantic==2.11.7",
+    "sqlmodel==0.0.24"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",

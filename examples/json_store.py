@@ -4,6 +4,8 @@ from tomachess.participant import Player
 from tomachess.tournament.round_robin import RoundRobinTournament
 from tomachess.store import JsonStore
 
+from helper_functions import print_tournament_players
+
 # Create some dummy players
 players = [
     Player(name="Alice"),
@@ -28,4 +30,10 @@ json_store.save_tournaments("tournament_collection", [tournament])
 
 # Load the tournament from the store
 tournaments = json_store.load_tournaments("tournament_collection")
-tournament = tournaments[0]
+loaded_tournament = tournaments[0]
+
+# Print the tournament participants
+print("--------------")
+print(" Participants ")
+print("--------------")
+print_tournament_players(loaded_tournament)
